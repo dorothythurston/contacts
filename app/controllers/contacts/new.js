@@ -6,6 +6,7 @@ export default Ember.Controller.extend({
       const contact =  this.get("model")
 
       contact.save();
+      this.get("flashMessages").success("Content Created");
       this.transitionToRoute("contacts.show", contact);
     },
   }
