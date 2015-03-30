@@ -1,0 +1,10 @@
+<h2>{{model.name}}</h2>
+
+<h3>Phone Numbers</h3>
+
+{{#each model.phones as |phone|}}
+  <p>{{phone.type}}: {{phone.number}}</p>
+{{/each}}
+
+{{link-to "Edit" "contacts.edit" model}}
+<a href="#" {{action "delete" model}}>Delete</a>

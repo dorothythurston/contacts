@@ -1,0 +1,24 @@
+<form {{action "save" on="submit"}}>
+  <div>
+    {{input value=contact.firstName placeholder="Contact's first name"}}
+  </div>
+
+  <div>
+    {{input value=contact.lastName placeholder="Contact's last name"}}
+  </div>
+
+  <h3>Phone Numbers</h3>
+
+  <div>
+    {{#each contact.phones as |phone|}}
+      {{input value=phone.number placeholder="Phone Number"}}
+      {{view "select" value=phone.type content=phoneTypes}}
+      <button {{action "removePhone" phone}}>Remove Phone</button>
+    {{/each}}
+    <div>
+      <button {{action "addPhone"}}>Add Phone</button>
+    </div>
+  </div>
+
+  <input type="submit" {{bind-attr value=buttonText disabled=isInvalid}}/>
+</form>
