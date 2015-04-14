@@ -1,11 +1,11 @@
 import Ember from "ember";
 
 export default Ember.Component.extend({
-phoneTypes: [
-"Home",
-"Work",
-"iPhone"
-],
+  phoneTypes: [
+    "Home",
+    "Work",
+    "iPhone"
+  ],
 
  isInvalid: Ember.computed.not("isValid"),
 
@@ -21,16 +21,16 @@ phoneTypes: [
     return nameValid && phonesValid;
  }.property("contact.{firstName,lastName,phones.@each.number}"),
 
-actions: {
-  save: function() {
-    this.sendAction();
-  },
-  addPhone: function() {
-    this.get("contact.phones").createRecord();
-  },
-  removePhone: function(phone) {
-    this.get("contact.phones").removeObject(phone);
+  actions: {
+    save: function() {
+      this.sendAction();
+    },
+    addPhone: function() {
+      this.get("contact.phones").createRecord();
+    },
+    removePhone: function(phone) {
+      this.get("contact.phones").removeObject(phone);
+    }
   }
-}
 
 });
